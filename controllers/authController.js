@@ -41,5 +41,22 @@ const signUpController = async(req,res)=>{
         })
     }
 }
-
-module.exports = {signUpController};
+const loginController =async(req,res)=>{
+    const {id,password}= req.body;
+    if(!id || !password){
+        return res.status(400).send({
+             success:false,
+             message:'Fill  the all details',
+  
+             })
+     }
+     const existinguser = await userModel.findOne({id})
+        if(existinguser){
+            return res.status(200).send({
+                success:false,
+                message:"Already existed uuser"
+            });
+        
+        }
+}
+module.exports = {signUpController,loginController};

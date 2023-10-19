@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
         type: Array,
         default: [],
       },
+      likes: {
+        type: Array,
+        default: [],
+      },
     location: String,
     bio:String,
     profilephoto: {
