@@ -14,18 +14,40 @@ const userSchema = new mongoose.Schema({
         type:'String',
         require:true,
     },
-    followers: {
-        type: Array,
-        default: [],
+    followers: [
+      {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'users',
+          required: true,
       },
-      following: {
-        type: Array,
-        default: [],
+  ],
+  following: [
+      {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'users',
+          required: true,
       },
-      likes: {
-        type: Array,
-        default: [],
+  ],
+  likes: [
+      {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'posts',
+          required: true,
       },
+  ],
+  comments: [
+      {
+          text: {
+              type: String,
+              required: true,
+          },
+          post: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'posts',
+              required: true,
+          },
+      },
+  ],
     location: String,
     bio:String,
     profilephoto: {

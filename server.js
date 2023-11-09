@@ -1,9 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDb = require('./config/db');
-dotenv.config();
 const app = express();
+dotenv.config();
+
 const authRoutes = require('./routes/authRoutes');
+
 
 Port = process.env.PORT||8000;
 app.use(express.json());
