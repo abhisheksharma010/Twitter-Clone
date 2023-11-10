@@ -1,0 +1,70 @@
+/* signup.css */
+
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #000;
+  }
+  
+  h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    color: #000;
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    outline: none;
+    width: 100%; /* Make the input take full width */
+  }
+  
+  input:focus {
+    outline: 2px solid #000;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  
+  p {
+    text-align: center;
+    color: #666;
+  }
+  
+  a {
+    color: #1da1f2;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
