@@ -1,40 +1,42 @@
-// Signup.js
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../Auth_Style/register.css';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
-
+import styles from "../Auth_Style/register.css";
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post(`/api/auth/signup`,{
+      const res = await axios.post(`/api/auth/signup`, {
         name,
         email,
         password
       });
-      if(res && res.data.success){
+      if (res && res.data.success) {
         navigate("/profile");
-      }
-      else{
+      } else {
         console.log(res.data.message);
       }
     } catch (error) {
       console.log(error);
     }
-    // api/auth/signup
-  
-    // You would typically send a request to your backend to create a new user here
-    // console.log('Registering with:', { name, email, password });
-    // Add your registration logic here
+  };
+
+  const googleAuth = async () => {
+    try {
+      const res = await axios.get(`/api/auth/google`);
+      if (res && res.data.url) {
+        window.location.href = res.data.url;
+      } else {
+        console.log('Failed to initiate Google authentication');
+      }
+    } catch (error) {
+      console.error('Error initiating Google authentication:', error);
+    }
   };
 
   return (
@@ -72,6 +74,11 @@ const Register = () => {
       <p>
         Already have an account? <Link to="/login">Log in</Link>
       </p>
+      <p className={styles.text}>or</p>
+      <button className={styles.google_btn} onClick={googleAuth}>
+        <img src="./images/google.png" alt="google icon" />
+        <span>Sign up with Google</span>
+      </button>
     </div>
   );
 };

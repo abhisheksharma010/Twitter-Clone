@@ -5,6 +5,8 @@ import HomePage from './Pages/HomePage';
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register';
 import Profile from './Pages/Profile';
+import ForgetPassword from './Pages/Auth/ForgetPassword';
+import ResetPassword from './Pages/Auth/ResetPassword';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
     <Route path="/" element={<HomePage/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/profile" element={<Profile/>}/>
+    <Route path="/forget-password" element={<ForgetPassword/>}/>
+    <Route path="/reset-password/:id/:token" element={<ResetPassword/>}/>
     <Route path="/register" element={<Register/>}/>
     </Routes>
     </>
