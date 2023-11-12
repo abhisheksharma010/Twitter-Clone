@@ -4,6 +4,7 @@ import {Route,Routes} from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import Login from './Pages/Auth/Login';
 import Register from './Pages/Auth/Register';
+
 import Profile from './Pages/Profile';
 import ForgetPassword from './Pages/Auth/ForgetPassword';
 import ResetPassword from './Pages/Auth/ResetPassword';

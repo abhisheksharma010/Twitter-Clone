@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema(
     {
-    text:{
+    title:{
         type:'String',
     },
     image:[
@@ -32,7 +32,13 @@ const postSchema = new mongoose.Schema(
             },
         },
     ],
-    
+    type:{
+        type:String,
+        // default:0
+    },
+    userid:{
+        type:'String',
+    }
 }
 );
 module.exports = mongoose.model('posts',postSchema);

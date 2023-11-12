@@ -238,6 +238,16 @@ const loginController = async (req,res)=>{
   //     res.send("Not Verified");
   //   }
   // };
+   const follow = async(req,res) =>{
+    const {user1,user2} = req.body;
+    try {
+      const u1 = await userModel.findOne({user1});
+      const u2 = await userModel.findOne({user2});
+      
+    } catch (error) {
+      
+    }
+   }
 
 
   

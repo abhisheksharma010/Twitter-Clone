@@ -1,0 +1,31 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.profile-container {
+    display: flex;
+    
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+  }
+  .username{
+    background-color: black;
+    width: 100%;
+    height: 10vh;
+    color: white;
+  }
+  .section-one {
+    flex: 3;
+    background-color: #eaeaea; /* Example background color */
+  }
+  
+  .section-two {
+    flex: 6;
+    background-color: #d3d3d3; /* Example background color */
+  }
+  
+  .section-three {
+    flex: 3;
+    background-color: #c0c0c0; /* Example background color */
+  }

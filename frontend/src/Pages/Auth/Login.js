@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { Link ,useNavigate} from 'react-router-dom';
 import '../Auth_Style/login.css';
 import axios from 'axios';
-
+import { useAuth } from '../../contect/auth';
 const Login = () => {
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState(null);
   const navigate = useNavigate();
-  
+  const [auth, setAuth] = useAuth();
 
   const handleLogin = async () => {
   console.log('clicked');
@@ -20,8 +20,13 @@ const Login = () => {
         password,
       })
       if(res && res.data.success){
-        
-        console.log("donses");
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem("auth", JSON.stringify(res.data));
+        // console.log("donses");
         navigate("/profile");
       }
       else{

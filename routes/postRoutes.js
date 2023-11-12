@@ -1,7 +1,13 @@
 const express = require('express');
-const app = express();
-const {getEveryPost} = require('../controllers/postController')
+const router = express.Router();
+const formidable = require('express-formidable');
+
+
+const requiredSignIn = require('../middleware/authMiddleware');
+const {getEveryPost,PostController} = require('../controllers/postController')
 
 const islogin = require('../controllers/authController');
 
-app.get('/for-you',getEveryPost);
+router.get('/for-you',getEveryPost);
+router.post('/create-post',formidable(), PostController);
+module.exports = router;

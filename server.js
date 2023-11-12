@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const connectDb = require('./config/db');
 const app = express();
 
-
+const formidable = require('express-formidable');
 const JWT = require('jsonwebtoken');
 const cors = require('cors');
 dotenv.config();
@@ -12,13 +12,21 @@ var nodemailer = require('nodemailer');
 app.use(cors());
 
 const authRoutes = require('./routes/authRoutes');
-const userModel = require('./models/userModel');
+const postRoutes = require('./routes/postRoutes');
+// const userModel = require('./models/userModel');
 
 
 Port = process.env.PORT||8000;
 app.use(express.json());
+// app.use(formidable());
+
+
 
 app.use('/api/auth',authRoutes);
+app.use('/api/posted',postRoutes);
+
+
+
 app.get('/',(req,res)=>{
     res.send(`Hello`);
 })
