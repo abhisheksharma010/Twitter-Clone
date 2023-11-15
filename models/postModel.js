@@ -19,17 +19,11 @@ const postSchema = new mongoose.Schema(
                 required: true,
             }
     ],
-    comments:[
+    comments: [
         {
-            text: {
-                type: String,
-                required: true,
-            },
-            post: {
-                type: mongoose.ObjectId,
-                ref: 'users',
-                required: true,
-            },
+            type: mongoose.ObjectId,
+            ref: 'comments',
+            required: true,
         },
     ],
     type:{
@@ -38,7 +32,11 @@ const postSchema = new mongoose.Schema(
     },
     userid:{
         type:'String',
-    }
-}
+    },
+    postedDate: {
+        type: Date,
+        default: Date.now, // Set the default value to the current date and time
+    },
+},{timestamps:true}
 );
 module.exports = mongoose.model('posts',postSchema);

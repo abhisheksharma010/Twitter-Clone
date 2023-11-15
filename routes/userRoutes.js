@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const {followingListController ,followController,likeController,commentController,deleteCommentController,searchUserController,followerListController} = require('../controllers/userController');
+router.post('/follow',followController);
+router.post('/like',likeController);
+router.post('/comment',commentController);
+router.post('/delete-comment',deleteCommentController);
+router.post('/search',searchUserController);
+router.post('/follower',followerListController);
+router.post('/following',followingListController);
+module.exports = router;

@@ -8,11 +8,19 @@ const JWT = require('jsonwebtoken');
 const cors = require('cors');
 dotenv.config();
 var nodemailer = require('nodemailer');
+const io = require('socket.io')(8000,{
+    cors:{
+        origin:'http://localhost:3000',
+    }
+});
+
 
 app.use(cors());
 
 const authRoutes = require('./routes/authRoutes');
 const postRoutes = require('./routes/postRoutes');
+const userRoutes = require('./routes/userRoutes');
+const chatRoutes  = require('./routes/chatRoutes');
 // const userModel = require('./models/userModel');
 
 
@@ -24,7 +32,11 @@ app.use(express.json());
 
 app.use('/api/auth',authRoutes);
 app.use('/api/posted',postRoutes);
-
+app.use('/api/user',userRoutes);
+app.use('/api/chat',chatRoutes);
+// io.on('connection',socket =>{
+    
+// })
 
 
 app.get('/',(req,res)=>{

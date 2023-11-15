@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .layout-page {
+    display: flex;
+    width: 100vw;
+    gap: 0; /* Remove the space between the sections */
+    height: 100vh; /* Set the height of the container to 100% of the viewport height */
+  }
+  
+  .left-section {
+    flex: 3;
+    background-color: #e20808; /* Adjust the background color as needed */
+  }
+  
+  .middle-section {
+    flex: 6;
+    background-color: greenyellow; /* Adjust the background color as needed */
+  }
+  
+  .right-section {
+    flex: 4;
+    background-color: #000; /* Adjust the background color as needed */
+  }
+  

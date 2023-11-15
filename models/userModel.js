@@ -36,18 +36,12 @@ const userSchema = new mongoose.Schema({
       },
   ],
   comments: [
-      {
-          text: {
-              type: String,
-              required: true,
-          },
-          post: {
-              type: mongoose.Schema.Types.ObjectId,
-              ref: 'posts',
-              required: true,
-          },
-      },
-  ],
+    {
+        type: mongoose.ObjectId,
+        ref: 'comments',
+        required: true,
+    },
+],
     location: String,
     bio:String,
     profilephoto: {
